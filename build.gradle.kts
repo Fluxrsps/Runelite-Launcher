@@ -40,6 +40,13 @@ group = "net.runelite"
 version = "2.7.6-SNAPSHOT"
 description = "RuneLite Launcher"
 
+extra.apply {
+    set("finalName", findProperty("finalName") as String)
+    set("lowerName", findProperty("lowerName") as String)
+    set("website", findProperty("website") as String)
+    set("colorScheme", findProperty("colorScheme") as String)
+}
+
 dependencies {
     implementation(libs.org.slf4j.slf4j.api)
     implementation(libs.ch.qos.logback.logback.classic)

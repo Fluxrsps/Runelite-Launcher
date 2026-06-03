@@ -357,7 +357,8 @@ $submitButton.Add_Click({
     $content += "colorScheme=$hex"
     $content += "launcherDescription=$($inputs['launcherDescription'].Text)"
 
-    $content | Set-Content $propsPath -Encoding UTF8
+    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+    [System.IO.File]::WriteAllLines((Join-Path $PSScriptRoot "gradle.properties"), $content, $utf8NoBom)
 
     # Process images and icons based on the selected base image
     $imageBasePath = $imagePathBox.Text
