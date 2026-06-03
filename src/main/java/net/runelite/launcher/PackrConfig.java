@@ -71,13 +71,7 @@ class PackrConfig
 			vmArgs.add("-Djava.net.preferIPv4Stack=true");
 		}
 
-		Map<String, String> env = getEnv(bootstrap);
-
-		patch(config ->
-		{
-			config.put("vmArgs", vmArgs);
-			config.put("env", env);
-		});
+		patch(config -> config.put("vmArgs", vmArgs));
 	}
 
 	static void patch(Consumer<Map> configConsumer)
@@ -186,18 +180,4 @@ class PackrConfig
 		}
 	}
 
-	private static Map<String, String> getEnv(Bootstrap bootstrap)
-	{
-		switch (OS.getOs())
-		{
-			case Windows:
-				return bootstrap.getLauncherWindowsEnv();
-			case MacOS:
-				return bootstrap.getLauncherMacEnv();
-			case Linux:
-				return bootstrap.getLauncherLinuxEnv();
-			default:
-				return null;
-		}
-	}
 }

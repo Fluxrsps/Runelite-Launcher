@@ -28,31 +28,31 @@ public class JavaInstaller {
         // Select the appropriate version details based on the OS and architecture
         if (os.contains("win")) {
             if (arch.contains("64")) {
-                version = "WIN64_VERSION";
+                version = "WIN64_RELEASE";
                 checksum = "WIN64_CHKSUM";
                 downloadLink = "WIN64_LINK";
             } else {
-                version = "WIN32_VERSION";
+                version = "WIN32_RELEASE";
                 checksum = "WIN32_CHKSUM";
                 downloadLink = "WIN32_LINK";
             }
         } else if (os.contains("mac")) {
             if (arch.contains("64")) {
-                version = "MAC_AMD64_VERSION";
+                version = "MAC_AMD64_RELEASE";
                 checksum = "MAC_AMD64_CHKSUM";
                 downloadLink = "MAC_AMD64_LINK";
             } else {
-                version = "MAC_AARCH64_VERSION";
+                version = "MAC_AARCH64_RELEASE";
                 checksum = "MAC_AARCH64_CHKSUM";
                 downloadLink = "MAC_AARCH64_LINK";
             }
         } else if (os.contains("linux")) {
             if (arch.contains("64")) {
-                version = "LINUX_AMD64_VERSION";
+                version = "LINUX_AMD64_RELEASE";
                 checksum = "LINUX_AMD64_CHKSUM";
                 downloadLink = "LINUX_AMD64_LINK";
             } else {
-                version = "LINUX_AARCH64_VERSION";
+                version = "LINUX_AARCH64_RELEASE";
                 checksum = "LINUX_AARCH64_CHKSUM";
                 downloadLink = "LINUX_AARCH64_LINK";
             }

@@ -33,7 +33,7 @@ cp build/packr/win-x86-config.json build/win-x86/config.json
 cp liblauncher/build32/Release/launcher_x86.dll build/win-x86/
 
 unzip win32_jre.zip
-mv jdk-$WIN32_VERSION-jre build/win-x86/jre
+mv $WIN32_RELEASE-jre build/win-x86/jre
 
 echo "$name".exe 32bit sha256sum
 sha256sum build/win-x86/"$name".exe

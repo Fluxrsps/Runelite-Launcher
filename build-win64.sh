@@ -33,7 +33,7 @@ cp build/packr/win-x64-config.json build/win-x64/config.json
 cp liblauncher/build64/Release/launcher_amd64.dll build/win-x64/
 
 unzip win64_jre.zip
-mv jdk-$WIN64_VERSION-jre build/win-x64/jre
+mv $WIN64_RELEASE-jre build/win-x64/jre
 
 echo "$name".exe 64bit sha256sum
 sha256sum build/win-x64/"$name".exe

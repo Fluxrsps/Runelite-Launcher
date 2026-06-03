@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v4
       with:
         submodules: 'true'
-    - run: choco install innosetup --version 6.4.0
+    - run: choco install innosetup --version 6.6.1 --allow-downgrade
     - name: Set up JDK 11
       uses: actions/setup-java@v4
       with:
@@ -69,9 +69,12 @@ jobs:
         if-no-files-found: error
   linux:
     runs-on: ubuntu-24.04
+    container:
+      image: amd64/ubuntu:20.04
+      options: --privileged
     steps:
-    - run: sudo apt update
-    - run: sudo apt install -y gcc-9-aarch64-linux-gnu g++-9-aarch64-linux-gnu
+    - run: apt update
+    - run: DEBIAN_FRONTEND=noninteractive apt install -y gcc-9-aarch64-linux-gnu g++-9-aarch64-linux-gnu g++ cmake git curl fuse file
     - uses: actions/checkout@v4
       with:
         submodules: 'true'
@@ -107,7 +110,7 @@ jobs:
           ${{ env.GRADLE_APP_NAME }}-aarch64.AppImage
         if-no-files-found: error
   macos:
-    runs-on: macos-13
+    runs-on: macos-15-intel
     steps:
     - uses: actions/setup-python@v5
       with:
