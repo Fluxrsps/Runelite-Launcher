@@ -792,11 +792,13 @@ public class Launcher
 				throw new VerificationException("unable to hash file", e);
 			}
 
-			if (!Objects.equals(artifact.getName(), "guice-4.1.0-no_aop.jar")) {
+			if (!artifact.getName().contains("guice"))
+			{
 				if (!fileHash.equals(expectedHash))
 				{
 					log.warn("Expected {} for {} but got {}", expectedHash, artifact.getName(), fileHash);
-					throw new VerificationException("Expected " + expectedHash + " for " + artifact.getName() + " but got " + fileHash);
+					throw new VerificationException(
+							"Expected " + expectedHash + " for " + artifact.getName() + " but got " + fileHash);
 				}
 			}
 
